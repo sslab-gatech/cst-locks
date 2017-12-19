@@ -341,7 +341,7 @@ int main(int argc, char **argv)
 #ifdef PRINT_OUTPUT
         printf("Creating thread %d\n", i);
 #endif
-        data[i].id = i;
+             data[i].id = i;
         data[i].num_acquires = 0;
         data[i].barrier = &barrier;
         if (pthread_create(&threads[i], &attr, test, (void *)(&data[i])) != 0) {

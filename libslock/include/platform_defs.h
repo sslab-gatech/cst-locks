@@ -62,6 +62,28 @@ extern "C" {
     };
 #endif
 
+#ifdef VICTOIRE
+#  define NUMBER_OF_SOCKETS 4
+#  define CORES_PER_SOCKET  8
+#  define CACHE_LINE_SIZE 64
+#  define NOP_DURATION 2
+  static uint8_t  __attribute__ ((unused)) the_cores[] = {
+        0, 1, 2, 3, 4, 5, 6, 7,
+        8, 9, 10, 11, 12, 13, 14, 15,
+        16, 17, 18, 19, 20, 21, 22, 23,
+        24, 25, 26, 27, 28, 29, 30, 31,
+    };
+
+  static uint8_t the_sockets[] =
+    {
+        0, 0, 0, 0, 0, 0, 0, 0, 
+        1, 1, 1, 1, 1, 1, 1, 1, 
+        2, 2, 2, 2, 2, 2, 2, 2, 
+        3, 3, 3, 3, 3, 3, 3, 3, 
+    };
+#endif
+
+
 #ifdef SPARC
 #  define NUMBER_OF_SOCKETS 8
 #  define CORES_PER_SOCKET 8
@@ -128,6 +150,8 @@ extern "C" {
         32, 33, 34, 35 
     };
 
+
+
 #elif defined(OPTERON)
 #  define NUMBER_OF_SOCKETS 8
 #  define CORES_PER_SOCKET 6
@@ -141,6 +165,8 @@ extern "C" {
         32, 33, 34, 35, 36, 37, 38, 39, 
         40, 41, 42, 43, 44, 45, 46, 47  
     };
+
+
 
 #elif defined(XEON)
 #  define NUMBER_OF_SOCKETS 8
@@ -161,13 +187,15 @@ extern "C" {
     {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-        3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
         4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
         5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
         6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
         7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
     };
+
+
 
 #elif defined(XEON120)
 #  define NUMBER_OF_SOCKETS 8
@@ -199,6 +227,7 @@ extern "C" {
 #endif
 
 
+
 #if defined(OPTERON)
 #  define PREFETCHW(x)		     asm volatile("prefetchw %0" :: "m" (*(unsigned long *)x))
 #elif defined(__sparc__)
@@ -211,6 +240,10 @@ extern "C" {
 #  define PREFETCHW(x)
 #endif
 
+
+
+
+
     static inline int get_cluster(int thread_id) {
 #ifdef __solaris__
         if (thread_id>64){
@@ -218,6 +251,12 @@ extern "C" {
             return 0;
         }
         return thread_id/CORES_PER_SOCKET;
+#elif VICTOIRE
+        if(thread_id>=32){
+            perror("Thread id too high");
+            return 0;
+        }
+        return the_sockets[thread_id];
 #elif XEON
         if (thread_id>=80){
             perror("Thread id too high");
