@@ -410,3 +410,12 @@
 #thread_count  : 12        #average           : 3217910.000000
 #thread_count  : 12        #average           : 3199023.916667
 #thread_count  : 13        #average           : 2916474.076923
+#thread_count  : 12        #average           : 2020136.250000
+#thread_count  : 12        #average           : 1967504.750000
+#thread_count  : 12        #average           : 1964637.333333
+#thread_count  : 12        #average           : 2012197.666667
+#thread_count  : 25        #average           : 840423.960000
+#thread_count  : 25        #average           : 835396.560000
+#thread_count  : 25        #average           : 837969.280000
+#thread_count  : 12        #average           : 2010908.750000
+#thread_count  : 25        #average           : 842568.880000

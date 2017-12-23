@@ -410,3 +410,12 @@
 #thread_count  : 12        #stddeviation/average           : 33.465618
 #thread_count  : 12        #stddeviation/average           : 64.177061
 #thread_count  : 13        #stddeviation/average           : 70.633419
+#thread_count  : 12        #stddeviation/average           : 0.009343
+#thread_count  : 12        #stddeviation/average           : 0.004093
+#thread_count  : 12        #stddeviation/average           : 0.004831
+#thread_count  : 12        #stddeviation/average           : 0.007997
+#thread_count  : 25        #stddeviation/average           : 0.014823
+#thread_count  : 25        #stddeviation/average           : 0.011881
+#thread_count  : 25        #stddeviation/average           : 0.012358
+#thread_count  : 12        #stddeviation/average           : 0.008848
+#thread_count  : 25        #stddeviation/average           : 0.011551

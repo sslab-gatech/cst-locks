@@ -410,3 +410,12 @@
 #thread_count  : 12        #acquires/s           : 3861492.000000
 #thread_count  : 12        #acquires/s           : 3838828.700000
 #thread_count  : 13        #acquires/s           : 3791416.300000
+#thread_count  : 12        #acquires/s           : 2424163.500000
+#thread_count  : 12        #acquires/s           : 2361005.700000
+#thread_count  : 12        #acquires/s           : 2357564.800000
+#thread_count  : 12        #acquires/s           : 2414637.200000
+#thread_count  : 25        #acquires/s           : 2101059.900000
+#thread_count  : 25        #acquires/s           : 2088491.400000
+#thread_count  : 25        #acquires/s           : 2094923.200000
+#thread_count  : 12        #acquires/s           : 2413090.500000
+#thread_count  : 25        #acquires/s           : 2106422.200000
